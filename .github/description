@@ -1,0 +1,1 @@
+LegisAI is a full-stack AI-powered legal document processing application that helps users classify, summarize, and organize legal PDFs. It features FastAPI backend with OpenAI integration and a Streamlit frontend with an intuitive interface.

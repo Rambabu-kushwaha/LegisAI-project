@@ -102,19 +102,24 @@ Follow these steps to set up and execute the project on your local machine.
 git clone https://github.com/Rambabu-kushwaha/LegisAI-project.git
 cd LegisAI-project
 ```
-### 2. 📤 Pull Latest Changes (Optional, if already cloned)
+
+### 2. � Install Required Dependencies
 
 ```bash
-git pull origin main
+pip install -r requirements.txt
 ```
 
-### 3. 🧭 Navigate to the Project Directory
+### 3. 🔑 Set up Environment Variables
 
-```bash
-cd LegisAI-project
+Create a `.env` file in the project root with your API keys:
+
+```
+OPENAI_API_KEY=your_openai_api_key_here
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password_here
 ```
 
-### 4. Execution: Run Backend & Frontend in Split Terminal
+### 4. 🚀 Run Backend & Frontend
 
 Use a code editor like VS Code, open a split terminal, and follow the steps below:
 
@@ -130,20 +135,10 @@ cd frontend
 streamlit run app.py
 ```
 
-### 4. Execution: Run Backend & Frontend in Split Terminal
+### 5. 📊 Access the Application
 
-Use a code editor like VS Code, open a split terminal, and follow the steps below:
-
-▶️ Terminal 1 — Run FastAPI Backend
-```bash
-uvicorn main:app --reload
-```
-
-🖥️ Terminal 2 — Run Streamlit Frontend
-```bash
-cd frontend
-streamlit run app.py
-```
+- Frontend: Open your browser and navigate to http://localhost:8501
+- API Documentation: Browse to http://localhost:8000/docs
 
 Use a code editor like **VS Code**, open a **split terminal**, and follow the steps below:
 

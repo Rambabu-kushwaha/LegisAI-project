@@ -9,9 +9,11 @@ import faiss
 import numpy as np
 import os
 import shutil
+import io
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 from pydantic import BaseModel
+from dotenv import load_dotenv
 # LegisAI Project - Personal Legal Document Management System
 # Created by: Rambabu Kushwaha
 # GitHub: https://github.com/Rambabu-kushwaha
@@ -86,9 +88,18 @@ class NotificationSettings(BaseModel):
 notification_settings: Dict[int, NotificationSettings] = {}
 
 # Configure OpenAI API
-# You should store this in an environment variable or config file, not in the code
-openai.api_key = "YOUR_API_KEY"  # Replace with your API key before running
-openai.api_base = "https://openrouter.ai/api/v1"
+# Load from environment variables for security
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
+if not openai.api_key:
+    print("Warning: OPENAI_API_KEY not found in environment variables.")
+    print("Please set it using 'export OPENAI_API_KEY=your_key' or create a .env file.")
+
+openai.api_base = os.getenv("OPENAI_API_BASE", "https://openrouter.ai/api/v1")
 
 def extract_text_from_pdf(file_bytes):
     # Extract text directly from bytes without using temporary files
@@ -219,15 +230,36 @@ Text: {text[:3000]}"""
 
 @app.post("/upload/")
 async def upload_pdf(file: UploadFile = File(...), summary_style: str = "default"):
+    """
+    Upload and process a PDF document.
+    
+    - Extracts text using OCR if needed
+    - Generates a summary in the requested style
+    - Classifies the document by legal category
+    - Creates vector embeddings for search
+    - Extracts case metadata
+    - Stores the document in the appropriate category folder
+    
+    Args:
+        file: The uploaded PDF file
+        summary_style: Style of summary to generate ("default", "brief", "detailed", "structured")
+        
+    Returns:
+        Document metadata including summary, category, and extracted case information
+    """
     try:
+        # Validate file type
+        if not file.filename.endswith('.pdf'):
+            raise HTTPException(status_code=400, detail="Only PDF files are supported")
+            
         file_bytes = await file.read()
         text = extract_text_from_pdf(file_bytes)
         if not text.strip():
-            return {"error": "Could not extract text from PDF"}
+            raise HTTPException(status_code=422, detail="Could not extract text from PDF")
             
         summary = summarize_text(text, summary_style)
         if summary == "Error generating summary":
-            return {"error": "Failed to generate summary"}
+            raise HTTPException(status_code=500, detail="Failed to generate summary")
             
         category = classify_text(text)
         embedding = get_embedding(text)
@@ -608,4 +640,8 @@ def case_features():
 # Run the server when the script is executed directly
 if __name__ == "__main__":
     import uvicorn
+    print("🚀 Starting LegisAI Server...")
+    print("📂 Document categories created: ", ", ".join(category_labels))
+    print("🔗 API will be available at http://localhost:8000")
+    print("📚 API documentation will be available at http://localhost:8000/docs")
     uvicorn.run(app, host="0.0.0.0", port=8000)
