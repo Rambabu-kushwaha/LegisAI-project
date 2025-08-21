@@ -86,7 +86,8 @@ class NotificationSettings(BaseModel):
 notification_settings: Dict[int, NotificationSettings] = {}
 
 # Configure OpenAI API
-openai.api_key = "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"
+# You should store this in an environment variable or config file, not in the code
+openai.api_key = "YOUR_API_KEY"  # Replace with your API key before running
 openai.api_base = "https://openrouter.ai/api/v1"
 
 def extract_text_from_pdf(file_bytes):
