@@ -16,7 +16,7 @@ import base64
 
 API_URL = "http://localhost:8000"
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="LegisAI by Rambabu Kushwaha", page_icon="⚖️", layout="wide")
 
 # Sidebar for navigation (moved to left)
 with st.sidebar:

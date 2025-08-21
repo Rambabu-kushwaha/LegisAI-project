@@ -11,8 +11,6 @@ This system includes:
 - A **Streamlit** frontend with navigation via `streamlit-option-menu`.
 - A **FastAPI** backend for text extraction, classification, summarization, case metadata extraction, RAG-based QA, and more.
 
----
-
 ## 🚀 Features
 
 ### 📂 PDF Upload & Analysis
@@ -101,7 +99,7 @@ Follow these steps to set up and execute the project on your local machine.
 ### 1. 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/zedslashh/LegisAI-project.git
+git clone https://github.com/Rambabu-kushwaha/LegisAI-project.git
 cd LegisAI-project
 ```
 ### 2. 📤 Pull Latest Changes (Optional, if already cloned)
@@ -113,10 +111,39 @@ git pull origin main
 ### 3. 🧭 Navigate to the Project Directory
 
 ```bash
-cd legal-analyzer
+cd LegisAI-project
 ```
 
 ### 4. Execution: Run Backend & Frontend in Split Terminal
+
+Use a code editor like VS Code, open a split terminal, and follow the steps below:
+
+▶️ Terminal 1 — Run FastAPI Backend
+```bash
+cd backend
+uvicorn main:app --reload
+```
+
+🖥️ Terminal 2 — Run Streamlit Frontend
+```bash
+cd frontend
+streamlit run app.py
+```
+
+### 4. Execution: Run Backend & Frontend in Split Terminal
+
+Use a code editor like VS Code, open a split terminal, and follow the steps below:
+
+▶️ Terminal 1 — Run FastAPI Backend
+```bash
+uvicorn main:app --reload
+```
+
+🖥️ Terminal 2 — Run Streamlit Frontend
+```bash
+cd frontend
+streamlit run app.py
+```
 
 Use a code editor like **VS Code**, open a **split terminal**, and follow the steps below:
 
