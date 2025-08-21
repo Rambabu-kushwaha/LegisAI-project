@@ -140,20 +140,21 @@ streamlit run app.py
 - Frontend: Open your browser and navigate to http://localhost:8501
 - API Documentation: Browse to http://localhost:8000/docs
 
-Use a code editor like **VS Code**, open a **split terminal**, and follow the steps below:
+## 👥 Contributing
 
----
+We welcome contributions from the community! If you'd like to contribute to LegisAI, please read our [Contributing Guide](CONTRIBUTING.md) for details on how to get started, our coding standards, and the process for submitting pull requests.
 
-### ▶️ Terminal 1 — Run FastAPI Backend
+### Ways to Contribute
 
-```bash
-uvicorn main:app --reload
-```
+- Report bugs and issues
+- Suggest new features or improvements
+- Submit pull requests
+- Improve documentation
+- Share feedback on the user experience
 
-### 🖥️ Terminal 2 — Run Streamlit Frontend
+Please note that this project follows a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
-```bash
-cd frontend
-streamlit run app.py
-```
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
