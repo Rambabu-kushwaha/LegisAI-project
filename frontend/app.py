@@ -9,6 +9,11 @@ import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 import base64
 
+# LegisAI Project - Personal Legal Document Management System
+# Created by: Rambabu Kushwaha
+# GitHub: https://github.com/Rambabu-kushwaha
+# Date: August 21, 2025
+
 API_URL = "http://localhost:8000"
 
 st.set_page_config(layout="wide")

@@ -12,6 +12,10 @@ import shutil
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
 from pydantic import BaseModel
+# LegisAI Project - Personal Legal Document Management System
+# Created by: Rambabu Kushwaha
+# GitHub: https://github.com/Rambabu-kushwaha
+# Date: August 21, 2025
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart

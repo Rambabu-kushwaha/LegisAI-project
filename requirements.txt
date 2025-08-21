@@ -16,3 +16,11 @@ icalendar==5.0.7
 python-dotenv==1.0.0
 pydantic==2.5.2
 pydantic[email]==2.5.2
+transformers==4.35.0
+pytz==2023.3
+email-validator==2.1.0.post1
+
+# LegisAI Project - Personal Legal Document Management System
+# Created by: Rambabu Kushwaha
+# GitHub: https://github.com/Rambabu-kushwaha
+# Date: August 21, 2025

@@ -1,6 +1,12 @@
-# LegisAI-Your personal AI assistant for legal tasks
+# LegisAI - Your personal AI assistant for legal tasks
 
-A full-stack AI-powered legal document processing app that classifies, summarizes, and organizes legal PDFs. This system includes:
+A full-stack AI-powered legal document processing app that classifies, summarizes, and organizes legal PDFs.
+
+**Created by: Rambabu Kushwaha**  
+**GitHub: https://github.com/Rambabu-kushwaha**  
+**Date: August 21, 2025**
+
+This system includes:
 
 - A **Streamlit** frontend with navigation via `streamlit-option-menu`.
 - A **FastAPI** backend for text extraction, classification, summarization, case metadata extraction, RAG-based QA, and more.
